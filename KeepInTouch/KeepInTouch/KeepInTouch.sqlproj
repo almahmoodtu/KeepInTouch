@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>KeepInTouch</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{891f8ba7-adce-4677-a85e-927752106c85}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>KeepInTouch</RootNamespace>
+    <AssemblyName>KeepInTouch</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\tb_Anniversary.sql" />
+    <Build Include="dbo\Tables\tb_Frequency.sql" />
+    <Build Include="dbo\Tables\tb_Relation.sql" />
+    <Build Include="dbo\Tables\tb_Person.sql" />
+    <Build Include="dbo\Tables\tb_PersonAnniversary.sql" />
+    <Build Include="dbo\Tables\tb_PersonFrequency.sql" />
+    <Build Include="dbo\Tables\tb_Event.sql" />
+    <Build Include="dbo\Tables\tb_PersonEvent.sql" />
+    <Build Include="dbo\Tables\tb_Year.sql" />
+    <Build Include="dbo\Tables\tb_YearEvent.sql" />
+    <Build Include="dbo\Tables\tb_Month.sql" />
+    <Build Include="dbo\Tables\tb_PersonMonth.sql" />
+    <Build Include="dbo\Tables\tb_Timeline.sql" />
+    <Build Include="dbo\Tables\tb_Z_Export_Google1.sql" />
+    <Build Include="dbo\Tables\tb_Z_Export_Google2.sql" />
+    <Build Include="dbo\Views\vw_Anniversary_All.sql" />
+    <Build Include="dbo\Views\vw_Anniversary_Isnull.sql" />
+    <Build Include="dbo\Views\vw_Anniversary_Notnull.sql" />
+    <Build Include="dbo\Views\vw_Event_All.sql" />
+    <Build Include="dbo\Views\vw_Event_NotSelected.sql" />
+    <Build Include="dbo\Views\vw_Event_Selected.sql" />
+    <Build Include="dbo\Views\vw_EventsThisYear_All.sql" />
+    <Build Include="dbo\Views\vw_EventsThisYear_Incomplete.sql" />
+    <Build Include="dbo\Views\vw_Frequency_All.sql" />
+    <Build Include="dbo\Views\vw_Frequency_Edited.sql" />
+    <Build Include="dbo\Views\vw_Frequency_NotEdited.sql" />
+    <Build Include="dbo\Views\vw_Month_All.sql" />
+    <Build Include="dbo\Views\vw_Month_Empty.sql" />
+    <Build Include="dbo\Views\vw_Month_Filled.sql" />
+    <Build Include="dbo\Views\vw_Month_Tr.sql" />
+    <Build Include="dbo\Views\vw_Month_Tr_COMPLETE.sql" />
+    <Build Include="dbo\Views\vw_Month_Tr_Description.sql" />
+    <Build Include="dbo\Views\vw_Month_Tr_INCOMPLETE.sql" />
+    <Build Include="dbo\Views\vw_Month_Tr_Summary.sql" />
+    <Build Include="dbo\Views\vw_Person_All.sql" />
+    <Build Include="dbo\Functions\sf_CalculateAge.sql" />
+    <Build Include="dbo\Functions\sf_GetFirstSunday.sql" />
+    <Build Include="dbo\Functions\tf_EventsThisYear.sql" />
+    <Build Include="dbo\Functions\tf_Anniversaries.sql" />
+    <Build Include="dbo\Functions\tf_Events.sql" />
+    <Build Include="dbo\Functions\tf_Frequencies.sql" />
+    <Build Include="dbo\Functions\tf_Months.sql" />
+    <Build Include="dbo\Functions\tf_Persons.sql" />
+    <Build Include="dbo\Functions\tf_AnniversariesString.sql" />
+    <Build Include="dbo\Stored Procedures\sp_CurrentYearADD.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonAnniversaryRESET.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonEventADD.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonEventRESET.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonFrequencyRESET.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthADD.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthAutosetM.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthCleanMSlash.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthRESET.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthResetM.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonmonthTOTimeline.sql" />
+    <Build Include="dbo\Stored Procedures\sp_PersonMonthUPDATE.sql" />
+    <Build Include="dbo\Stored Procedures\sp_TimelineTOPersonmonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_YearEventADD.sql" />
+    <Build Include="dbo\Stored Procedures\sp_YearEventRESET.sql" />
+    <Build Include="dbo\Stored Procedures\sp_YearEventUPDATE.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Z_Export_Google1.sql" />
+    <Build Include="dbo\Stored Procedures\sp_Z_Export_Google2.sql" />
+  </ItemGroup>
+</Project>
